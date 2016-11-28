@@ -1,10 +1,8 @@
-## Background
+## Data Set
 
 #Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, the goal is to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. 
 
-## Expected Output
-
-#The goal of this project is to predict the manner in which they did the exercise. This is the "classe" variable in the training set.
+## The goal of this project is to predict the manner in which they did the exercise. This is the "class" variable in the training set.
 
 ### Load caret, rpart, rpart.plot, RColorBrewer, rattle, randomForest packages
 
@@ -18,13 +16,9 @@ library(randomForest)
 
 ### Set seed to reproduce same results 
 
-#```{r}
 set.seed(12345)
 
-
 ### Loading data 
-
-
 train <- "data/pml-training.csv"
 test <- "data/pml-testing.csv"
 training <- read.csv(train, na.strings=c("NA","#DIV/0!",""))
@@ -135,7 +129,7 @@ predictionsB1 <- predict(modFitB1, myTesting, type = "class")
 confusionMatrix(predictionsB1, myTesting$classe)
 
 
-## Creating files for executing the test cases as part of the assignment
+## Creating files for executing the test cases
 
 predictionsB2 <- predict(modFitB1, testing, type = "class")
 
